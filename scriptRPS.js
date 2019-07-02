@@ -59,8 +59,8 @@ function getResults() { // Game logic here
 }
 
 function score () { // score here
-    const win = currentUserScore.innerHTML + 1;
-    const lose = currentCpuScore.innerHTML + 1;
+    const win = currentUserScore + 1;
+    const lose = currentCpuScore + 1;
     if (getResults() === 'You win'){
         return (win)
     } else if (
