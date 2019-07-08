@@ -1,8 +1,7 @@
+// initialize user's choice and cpu's choice to undefined because nothing has been picked yet. 
 let userChoice, cpuChoice;
-let currentUserScore = 0;
-let currentCpuScore = 0;
 
-// grab your HTML elements below
+// grab all of your HTML elements by ID. This bridges the connection to your jacascript. 
 const mainSection = document.getElementById('mainSection')
 const results = document.getElementById('results')
 const rockButton = document.getElementById('rock');
@@ -21,7 +20,7 @@ lizardButton.addEventListener('click', handleClick);
 spockButton.addEventListener('click', handleClick);
 
 // function section
-function handleClick(e) {
+function handleClick(e) { 
     getUserChoice(e);
     getCpuChoice();
     render();
