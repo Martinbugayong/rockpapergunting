@@ -12,7 +12,7 @@ const spockButton = document.getElementById('spock');
 const userScore = document.getElementById('userScore')
 const cpuScore = document.getElementById('cpuScore')
 
-//event listiners below
+//event listiners for all buttons on HTML 
 rockButton.addEventListener('click', handleClick);
 paperButton.addEventListener('click', handleClick);
 scissorButton.addEventListener('click', handleClick);
@@ -20,7 +20,7 @@ lizardButton.addEventListener('click', handleClick);
 spockButton.addEventListener('click', handleClick);
 
 // function section
-function handleClick(e) { 
+function handleClick(e) { // Function to determines what happens when you click a button
     getUserChoice(e);
     getCpuChoice();
     render();
@@ -59,7 +59,7 @@ function getResults() { // Game logic here
     }
 }
 
-function render() { // print your new screen here
+function render() { // render function displays the new HTML document after the changes. 
     mainSection.innerHTML = userChoice + " vs " + cpuChoice;
     results.innerHTML = getResults();
 }
