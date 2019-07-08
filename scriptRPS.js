@@ -12,8 +12,8 @@ const lizardButton = document.getElementById('lizard');
 const spockButton = document.getElementById('spock');
 const userScore = document.getElementById('userScore')
 const cpuScore = document.getElementById('cpuScore')
-//event listiners below
 
+//event listiners below
 rockButton.addEventListener('click', handleClick);
 paperButton.addEventListener('click', handleClick);
 scissorButton.addEventListener('click', handleClick);
@@ -41,40 +41,26 @@ function getResults() { // Game logic here
     if (userChoice === cpuChoice) {
         return ('Draw, Play Again')
     } else if (
-        userChoice === 'rock' && cpuChoice === 'scissors'||
-        userChoice === 'rock' && cpuChoice === 'lizard'||
-        userChoice === 'paper' && cpuChoice === 'rock'||
-        userChoice === 'paper' && cpuChoice === 'spock'||
-        userChoice === 'scissors' && cpuChoice === 'paper'||
-        userChoice === 'scissors' && cpuChoice === 'lizard'||
-        userChoice === 'lizard' && cpuChoice === 'paper'||
-        userChoice === 'lizard' && cpuChoice === 'spock'||
-        userChoice === 'spock' && cpuChoice === 'scissors'||
+        userChoice === 'rock' && cpuChoice === 'scissors' ||
+        userChoice === 'rock' && cpuChoice === 'lizard' ||
+        userChoice === 'paper' && cpuChoice === 'rock' ||
+        userChoice === 'paper' && cpuChoice === 'spock' ||
+        userChoice === 'scissors' && cpuChoice === 'paper' ||
+        userChoice === 'scissors' && cpuChoice === 'lizard' ||
+        userChoice === 'lizard' && cpuChoice === 'paper' ||
+        userChoice === 'lizard' && cpuChoice === 'spock' ||
+        userChoice === 'spock' && cpuChoice === 'scissors' ||
         userChoice === 'spock' && cpuChoice === 'rock'
-        ) {
+    ) {
+        userScore.innerHTML++;
         return ('You win')
     } else {
+        cpuScore.innerHTML++;
         return ('You lose')
-    }
-}
-
-function score () { // score here
-    const win = currentUserScore + 1;
-    const lose = currentCpuScore + 1;
-    if (getResults() === 'You win'){
-        return (win)
-    } else if (
-        getResults() === 'You lose'
-    ){
-        return (lose)
-    } else if (getResults() === 'Draw, Play Again'){
-        return currentUserScore, currentCpuScore
     }
 }
 
 function render() { // print your new screen here
     mainSection.innerHTML = userChoice + " vs " + cpuChoice;
     results.innerHTML = getResults();
-    userScore.innerHTML = score();
-    cpuScore.innerHTML = score();
 }
