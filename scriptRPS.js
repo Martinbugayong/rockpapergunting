@@ -51,19 +51,21 @@ function getResults() { // Game logic here
         userChoice === 'lizard' && cpuChoice === 'spock' ||
         userChoice === 'spock' && cpuChoice === 'scissors' ||
         userChoice === 'spock' && cpuChoice === 'rock'
-    ) {
-        userScore.innerHTML++;
-        return ('You win')
-    } else {
-        cpuScore.innerHTML++;
-        return ('You lose')
+        ) {
+            userScore.innerHTML++;
+            return ('You win')
+        } else {
+            cpuScore.innerHTML++;
+            return ('You lose')
+        }
     }
-}
-
-function getRound() {
-    if (userScore.innerHTML === 2) {
-        return ('Game over you win')
-    } else if (cpuScore.innerHTML === 2) {
+    console.log (userScore.innerHTML)
+    console.log (cpuScore.innerHTML)
+    
+    function getRound() {
+        if (userScore.innerHTML === 2) {
+            return ('Game over you win')
+        } else if (cpuScore.innerHTML === 2) {
         return ('Game over you lose')
     }
 }
