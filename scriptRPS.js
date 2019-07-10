@@ -9,8 +9,9 @@ const paperButton = document.getElementById('paper');
 const scissorButton = document.getElementById('scissors');
 const lizardButton = document.getElementById('lizard');
 const spockButton = document.getElementById('spock');
-const userScore = document.getElementById('userScore')
-const cpuScore = document.getElementById('cpuScore')
+const userScore = document.getElementById('userScore');
+const cpuScore = document.getElementById('cpuScore');
+const round = document.getElementById('round');
 
 //event listiners for all buttons on HTML 
 rockButton.addEventListener('click', handleClick);
@@ -59,7 +60,16 @@ function getResults() { // Game logic here
     }
 }
 
+function getRound() {
+    if (userScore.innerHTML === 2) {
+        return ('Game over you win')
+    } else if (cpuScore.innerHTML === 2) {
+        return ('Game over you lose')
+    }
+}
+
 function render() { // render function displays the new HTML document after the changes. 
     mainSection.innerHTML = userChoice + " vs " + cpuChoice;
     results.innerHTML = getResults();
+    round.innerHTML = getRound();
 }
