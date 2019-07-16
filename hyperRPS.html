@@ -9,19 +9,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
 </head>
 <body>
-    <h1>Round</h1>
-    <h1 id="round">1</h1>
-    <p id="mainSection">Think you can beat Sheldon?</p>
-    <h2 id="results">Lets Play</h2>
-    <h1 id="player1">Player 1:</h1>
-    <h1 id="userScore">0</h1>
-    <h1 id="cpu">MBA:</h1>
-    <h1 id="cpuScore">0</h1>
-    <button id="rock">ROCK</button>
-    <button id="paper">PAPER</button>
-    <button id="scissors">SCISSORS</button>
-    <button id="lizard">LIZARD</button>
-    <button id="spock">SPOCK</button>
+   <div id="mainSection">
+       <h1 id="nameOfTheGame">Rock | Paper | Scissors | Lizard | Spock</h1>
+   </div>
+   <div>
+       <h1 id="roundText">Round</h1>
+       <h1 id="roundNumber">1</h1>
+   </div>
+   <div id="playerSection">
+       <h1 id="playerText">Player One score:</h1>
+       <p id="playerScore">0</p>
+   </div>
+   <div id="computerSection">
+       <h1 id="computerText">Computer Score:</h1>
+       <p id="computerScore">0</p>
+   </div>
+   <div id="buttonSection">
+       <button id="rockButton">Rock</button>
+       <button id="paperButton">Paper</button>
+       <button id="scissorsButton">Scissors</button>
+       <button id="lizardButton">Lizard</button>
+       <button id="spockButton">Spock</button>
+   </div>
     <script src="scriptRPS.js"></script>
 </body>
 </html>
