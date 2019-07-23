@@ -13,15 +13,15 @@ let playerChoice, computerChoice; // both undefined here
 console.log(playerChoice) // output 'undefined'
 
 // event listiners for all buttons on HTML
-rockButton.addEventListener('click', getPlayerChoice)
+rockButton.addEventListener('click', isClicked)
 paperButton.addEventListener('click', isClicked)
 scissorsButton.addEventListener('click', isClicked)
 lizardButton.addEventListener('click', isClicked)
 spockButton.addEventListener('click', isClicked)
 
 // click function
-function isClicked (){
-
+function isClicked (e){
+    getPlayerChoice(e);
 }
 
 // create player game logic  
@@ -31,8 +31,8 @@ function getPlayerScore (){
 
 // create function that gets player's choice
 function getPlayerChoice(e){
-    playerChoice = e.target.id; // player choice should be inner html of button clicked
-    console.log(playerChoice) // output expected should be inner html of button clicked 
+    playerChoice = e.target.id; 
+    console.log(playerChoice) 
 }
 
 // create computer game logic
