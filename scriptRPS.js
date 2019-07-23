@@ -29,7 +29,7 @@ spockButton.addEventListener('click', isClicked)
 function isClicked(e) {
     getPlayerChoice(e);
     getComputerChoice(e);
-    getPlayerScore();
+    getResults();
 }
 
 // create playerChoice function that gets player's choice
@@ -59,26 +59,33 @@ function getComputerChoice() {
 }
 
 // create win condition.  
-function getPlayerScore() {
-
-    if (playerChoice === rock && computerChoice === scissors || lizard, 
-        playerChoice === paper && computerChoice === rock || spock, 
-        playerChoice === scissors && computerChoice === paper || lizard, 
-        playerChoice === lizard && computerChoice === spock || paper, 
-        playerChoice === spock && computerChoice === scissors || rock
+function getResults() {
+    if (playerChoice === rock && computerChoice === scissors ||
+        playerChoice === rock && computerChoice === lizard ||
+        playerChoice === paper && computerChoice === rock ||
+        playerChoice === paper && computerChoice === spock ||
+        playerChoice === scissors && computerChoice === paper ||
+        playerChoice === scissors && computerChoice === lizard ||
+        playerChoice === lizard && computerChoice === spock ||
+        playerChoice === lizard && computerChoice === paper ||
+        playerChoice === spock && computerChoice === scissors ||
+        playerChoice === spock && computerChoice === rock
     ) {
-        console.log(playerChoice + " vs " + computerChoice)
-    } else if (
-        playerChoice === computerChoice 
+        console.log('player wins')
+    }
+    else if (
+        playerChoice === computerChoice
     ) {
         console.log('its a draw')
+    } else {
+        console.log('computer wins')
     }
 }
 
-// create computer win condition 
-
-
-// create round 
+// create round logic
+// function getRounds() {
+//     if (pla)
+// }
 
 // create game over 
 
