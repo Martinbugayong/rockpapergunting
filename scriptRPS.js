@@ -11,7 +11,6 @@ const paper = paperButton.innerHTML;
 const scissors = scissorsButton.innerHTML;
 const lizard = lizardButton.innerHTML;
 const spock = spockButton.innerHTML;
-const playerWin = document.getElementById('playerScore').innerHTML
 
 // initialize default game state
 let playerScore = 0;
@@ -44,7 +43,8 @@ function getPlayerChoice(e) {
 
 // create function to add to player score
 function addPlayerScore () {
-    playerScore ++;
+    // playerScore ++;
+    document.write(playerScore += 1);
     console.log(playerScore);
 }
 
@@ -102,8 +102,7 @@ function getResults() {
 }
 
 // function render() {
-//     playerScore
-//     console.log(playerScore)
+    
 // }
 
 // create scoring logic
