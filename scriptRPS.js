@@ -1,60 +1,44 @@
-// grab all of your HTML elements by ID
+/* ----- BUTTON ELEMENTS BY ID ----- */
 const rockButton = document.getElementById('rockButton')
 const paperButton = document.getElementById('paperButton')
 const scissorsButton = document.getElementById('scissorsButton')
 const lizardButton = document.getElementById('lizardButton')
 const spockButton = document.getElementById('spockButton')
 
-// grab inner HTML of elements in the document
+/* ----- INNERHTML OF BUTTONS ----- */
 const rock = rockButton.innerHTML;
 const paper = paperButton.innerHTML;
 const scissors = scissorsButton.innerHTML;
 const lizard = lizardButton.innerHTML;
 const spock = spockButton.innerHTML;
 
-// initialize default game state
+/* ----- APP STATE / GAME START VALUES ----- */
 let playerScore = 0;
-// console.log(playerScore);
 let computerScore = 0;
-// console.log(computerScore);
 let roundNumber = 1;
-// console.log(roundNumber);
-let playerChoice, computerChoice; // both undefined here
+let playerChoice, computerChoice;
 
-// event listiners for all buttons on HTML
+/* ----- EVENT LISTINERS ----- */
 rockButton.addEventListener('click', isClicked)
 paperButton.addEventListener('click', isClicked)
 scissorsButton.addEventListener('click', isClicked)
 lizardButton.addEventListener('click', isClicked)
 spockButton.addEventListener('click', isClicked)
 
-// click function
+/* ----- CLICK FUNCTION ----- */
 function isClicked(e) {
     getPlayerChoice(e);
     getComputerChoice(e);
     getResults();
-    // render();
+    getTotalScore();
 }
 
-// create playerChoice function that gets player's choice
+/* ----- TARGET PLAYERS CHOICE ----- */
 function getPlayerChoice(e) {
     playerChoice = e.target.innerHTML;
 }
 
-// create function to add to player score
-function addPlayerScore () {
-    // playerScore ++;
-    document.write(playerScore += 1);
-    console.log(playerScore);
-}
-
-// create function to add computer score
-function addComputerScore() {
-    computerScore ++;
-    console.log(computerScore);
-}
-
-// create computerChoice function
+/* ----- GENERATE COMPUTER CHOICE ----- */
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 5)
     switch (randomNumber) {
@@ -75,7 +59,22 @@ function getComputerChoice() {
     }
 }
 
-// create win condition.  
+/* ----- INCREMENT PLAYER SCORE ----- */
+function addPlayerScore() {
+    playerScore++;
+}
+
+/* ----- INCREMENT COMPUTER SCORE ----- */
+function addComputerScore() {
+    computerScore++;
+}
+
+/* ----- INCREMENT ROUND NUMBER ----- */
+function getRound() {
+    roundNumber++;
+}
+
+/* ----- WINNING CONDITIONS/GAME LOGIC ----- */
 function getResults() {
     if (playerChoice === rock && computerChoice === scissors ||
         playerChoice === rock && computerChoice === lizard ||
@@ -89,23 +88,28 @@ function getResults() {
         playerChoice === spock && computerChoice === rock
     ) {
         addPlayerScore();
+        getRound();
         console.log('Player total score ' + playerScore);
+        console.log('its round #' + roundNumber);
     }
     else if (
         playerChoice === computerChoice
     ) {
         console.log('its a draw')
+        console.log('its round #' + roundNumber);
     } else {
         addComputerScore();
+        getRound();
         console.log('Computer total score ' + computerScore);
+        console.log('its round #' + roundNumber);
     }
 }
 
-// function render() {
-    
-// }
-
-// create scoring logic
-// create round logic
-// create game over 
-// create reset game logic (re-render original state after game over 
+/* ----- GAME OVER ----- */
+function getTotalScore() {
+    if (playerScore === 3) {
+        console.log("player wins")
+    } else if (computerScore === 3) {
+        console.log("computer wins")
+    }
+}
