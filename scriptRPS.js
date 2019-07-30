@@ -5,7 +5,15 @@ const scissorsButton = document.getElementById('scissorsButton')
 const lizardButton = document.getElementById('lizardButton')
 const spockButton = document.getElementById('spockButton')
 
-/* ----- INNERHTML OF BUTTONS ----- */
+
+/* ----- innerHTML OF TEXT SECTIONS ----- */
+let pScore = document.getElementById('playerScore')
+let cScore = document.getElementById('computerScore')
+let rNumber = document.getElementById('roundNumber')
+let pChoice = document.getElementById('playerChoice')
+let cChoice = document.getElementById('computerChoice')
+
+/* ----- innerHTML OF BUTTONS ----- */
 const rock = rockButton.innerHTML;
 const paper = paperButton.innerHTML;
 const scissors = scissorsButton.innerHTML;
@@ -31,6 +39,7 @@ function isClicked(e) {
     getComputerChoice(e);
     getResults();
     getTotalScore();
+    render();
 }
 
 /* ----- TARGET PLAYERS CHOICE ----- */
@@ -89,17 +98,20 @@ function getResults() {
     ) {
         addPlayerScore();
         getRound();
+        render();
         console.log('Player total score ' + playerScore);
         console.log('its round #' + roundNumber);
     }
     else if (
         playerChoice === computerChoice
     ) {
+        render();
         console.log('its a draw')
         console.log('its round #' + roundNumber);
     } else {
         addComputerScore();
         getRound();
+        render();
         console.log('Computer total score ' + computerScore);
         console.log('its round #' + roundNumber);
     }
@@ -108,8 +120,19 @@ function getResults() {
 /* ----- GAME OVER ----- */
 function getTotalScore() {
     if (playerScore === 3) {
+        playerChoice = 'Player wins'
         console.log("player wins")
     } else if (computerScore === 3) {
+        computerChoice = 'Computer wins'
         console.log("computer wins")
     }
+}
+
+/* ----- RENDER ----- */
+function render() {
+    pScore.innerHTML = playerScore
+    cScore.innerHTML = computerScore
+    rNumber.innerHTML = roundNumber;
+    pChoice.innerHTML = playerChoice;
+    cChoice.innerHTML = computerChoice;
 }
